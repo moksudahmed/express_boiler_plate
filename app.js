@@ -11,9 +11,26 @@ const authentication = (req,res,next) =>{
     next();
 };
 
-
 app.use(router);
 app.use(publicRouter);
+
+
+app.use(authentication);
+app.use(adminRouter);
+
+// Home route
+app.get("/", (req, res)=>{
+    res.sendFile(__dirname + "/views/index.html");
+})
+// Route not found error
+app.use((req,res,next)=>{
+    res.status(404).json({message: "bed request"})
+})
+
+// Server error
+app.use((err, req,res,next)=>{
+    res.status(500).json({message: "Server error"})
+})
 
 
 router.get("/", authentication ,(req,res)=>{
@@ -23,8 +40,6 @@ router.get("/", authentication ,(req,res)=>{
 
 // All the admins roots are checkd by authentications middleware 
 
-app.use(authentication);
-app.use(adminRouter);
 
 
 

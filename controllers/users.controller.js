@@ -9,7 +9,7 @@ exports.getUsers = (req , res) =>{
 }
  
 exports.getUser = (req, res) =>{
-    res.sendFile(path.join(__dirname + "/../views/index.html"));    
+    res.sendFile(path.join(__dirname + "/../views/registration.html"));    
 }
 
 exports.createUser = (req , res) =>{
