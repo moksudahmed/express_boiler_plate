@@ -1,6 +1,13 @@
 const users = require("../models/users.model");
 const path = require("path");
 
+exports.getUsers = (req , res) =>{
+    res.status(200).json({
+        success: true,
+        users
+    })
+}
+ 
 exports.getUser = (req, res) =>{
     res.sendFile(path.join(__dirname + "/../views/index.html"));    
 }

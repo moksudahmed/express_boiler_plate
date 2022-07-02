@@ -6,17 +6,25 @@ const app = express();
 
 const router = express.Router();
 
+const authentication = (req,res,next) =>{    
+    console.log("This is a authentication middleware");
+    next();
+};
+
+
 app.use(router);
-app.use(adminRouter);
 app.use(publicRouter);
 
-// router.all("*", (req,res)=>{
-//     console.log("For All ");
-// })
-router.get("/",(req,res)=>{
+
+router.get("/", authentication ,(req,res)=>{
     res.send("Welcome from Home Page");
     res.end();
 })
+
+// All the admins roots are checkd by authentications middleware 
+
+app.use(authentication);
+app.use(adminRouter);
 
 
 
