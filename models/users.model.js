@@ -4,12 +4,14 @@ const users = [
     {   
         id: uuidv4(), 
         name:"Moksud Ahmed", 
-        age : 40
+        email:"moksud@gmail.com",
+        password : "123123"
     },
     {   
         id: uuidv4(), 
-        name:"Fuad Ahmed", 
-        age : 39
+        name:"Fuad Ahmed",
+        email: "fahmed@gmail.com", 
+        password : "121333"
     },
 ];
 
